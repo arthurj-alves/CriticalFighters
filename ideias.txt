@@ -1,0 +1,44 @@
+# Sistema de batalha - Ações:
+- Defesa ganha de Ataque
+- Ataque ganha de Magia
+- Magia ganha de Defesa
+- Recarrega Magia
+
+Existem 4 x 4 acontecimentos:
+ Ataque + Ataque : Maior ataque causa a diferença de dano
+ Ataque + Defesa : Sofre dano 
+CHECK Ataque + Magia : Ambos sofrem dano, recebe negação de Magia e Recarga.  
+ Ataque + Recarrega : Causa dano com Bônus
+
+ Defesa + Ataque : Dano no adversário
+CHECK Defesa + Defesa : Nada acontece
+ Defesa + Magia : Sofre dano reduzido
+CHECK Defesa + Recarrega : Nada acontece
+
+CHECK Magia + Ataque : Ambos sofrem dano, causa negação de Magia e Recarga.  
+ Magia + Defesa : Causa dano reduzido
+ Magia + Magia : Maior Magia causa a diferença de dano
+ Magia + Recarrega : Causa dano de Magia
+
+ Recarrega + Ataque : Sofre com Bônus
+CHECK Recarrega + Defesa : Nada acontece
+ Recarrega + Magia : Sofre dano de Magia
+CHECK Recarrega + Recarrega : Ambos recarregam
+   
+Defender x vezes seguidas tem 0.5^x chance de sucesso.
+Atacar x vezes seguidas tem 0.7^x chance de sucesso.
+
+#Ideias
+
+##Personagens com atributos diferentes:
+- Duas cargas de magia
+- + Magia
+- + Ataque
+- Thorns para Defesa
+- Premonição, antecipa a ação do adversário. até 2 usos.
+
+
+
+
+## Próximos passos
+- Implementar Machine Learning para jogar o jogo.
