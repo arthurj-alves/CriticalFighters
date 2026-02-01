@@ -56,9 +56,9 @@ int Fighter::retornaDano(ActionType tipo){
         case ActionType::MAGIA:
             return _magia;
         case ActionType::DEFESA:
-            return 0;
+            return 1;
         case ActionType::RECARREGA:
-            return 0;        
+            return 1;        
         default:
             break;
         }
