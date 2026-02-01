@@ -40,6 +40,27 @@ public:
     // Getters
     int getTurnoAtual() const;
 
+    // Resolvers
+    TurnResult resolveAtaqueAtaque(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveAtaqueMagia(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveAtaqueDefesa(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveAtaqueRecarrega(Action& acaoP1, Action& acaoP2);
+
+    TurnResult resolveMagiaMagia(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveMagiaAtaque(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveMagiaDefesa(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveMagiaRecarrega(Action& acaoP1, Action& acaoP2);
+
+    TurnResult resolveDefesaDefesa(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveDefesaAtaque(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveDefesaMagia(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveDefesaRecarrega(Action& acaoP1, Action& acaoP2);
+
+    TurnResult resolveRecarregaRecarrega(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveRecarregaAtaque(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveRecarregaMagia(Action& acaoP1, Action& acaoP2);
+    TurnResult resolveRecarregaDefesa(Action& acaoP1, Action& acaoP2);
+
 };
 
 #endif  
