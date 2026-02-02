@@ -14,7 +14,7 @@ private:
     Fighter& _fighter;
     
 public:
-    Action(ActionType tipo, int valor, Fighter& fighter);
+    Action(ActionType tipo, Fighter& fighter);
     
     ActionType getTipo() const;
     Fighter& getFighter() const;

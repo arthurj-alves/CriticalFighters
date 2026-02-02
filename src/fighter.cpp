@@ -15,17 +15,15 @@ Fighter::Fighter(string nome, int vida, int ataque, int magia, int cargaTotal)
       _cargaMagia(0), _negadoMagia(false), _contadorSequencia(0),
       _tipoUltima(ActionType::NENHUMA) {}
 
-bool Fighter::verificarSucesso(ActionType acaoAtual){
-    ActionType tipoUltima = _tipoUltima;
-    ActionType tipoAtual = acaoAtual;
+bool Fighter::isSucesso(ActionType tipoAtual){
     
-    if(tipoUltima != tipoAtual){
+    if(_tipoUltima != tipoAtual){
         _contadorSequencia = 0;
     }else{
         _contadorSequencia++;
     }
 
-    if((acaoAtual == ActionType::MAGIA) || (acaoAtual == ActionType::RECARREGA)) return true;
+    if((tipoAtual == ActionType::MAGIA) || (tipoAtual == ActionType::RECARREGA)) return true;
 
     int chance = 0; 
     switch (tipoAtual)
@@ -38,38 +36,36 @@ bool Fighter::verificarSucesso(ActionType acaoAtual){
     default:
         break;
     }
+    
+    _tipoUltima = tipoAtual;
 
     static std::random_device rd;
     static std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0.0, 1.0);
-    
+
     return dis(gen) <= chance;
 }
 
 int Fighter::retornaDano(ActionType tipo){
-    if(verificarSucesso(tipo)) {
-        switch (tipo)
-        {
-        case ActionType::ATAQUE:
-            return _ataque;
-            break;
-        case ActionType::MAGIA:
-            return _magia;
-        case ActionType::DEFESA:
-            return 1;
-        case ActionType::RECARREGA:
-            return 1;        
-        default:
-            break;
-        }
-    }else{
-        return 0;
-    }    
+    // Depois adicionar verificador de tipo
+    switch (tipo)
+    {
+    case ActionType::ATAQUE:
+        return _ataque;
+        break;
+    case ActionType::MAGIA:
+        return _magia;      
+    default:
+        break;
+    } 
 }
 
 bool Fighter::isKnockout(int dano){
-    if(dano >= _vidaAtual) return true;
-    return false;
+    if(dano >= _vidaAtual) {
+        return true;
+    }else{
+        return false;
+    }
 }
 
 // ========== GETTERS ==========
@@ -142,6 +138,6 @@ void Fighter::setNegadoMagia(bool negado) {
     _negadoMagia = negado;
 }
 
-void Fighter::setTipoUltima(Action& acao) {
+void Fighter::setUltimaAcao(Action& acao) {
     _tipoUltima = acao.getTipo();
 }

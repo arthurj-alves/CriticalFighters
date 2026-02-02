@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Action::Action(ActionType tipo, int valor, Fighter& fighter): _tipo(tipo), _fighter(fighter) {}
+Action::Action(ActionType tipo, Fighter& fighter): _tipo(tipo), _fighter(fighter) {}
 
 ActionType Action::getTipo() const {
     return _tipo;

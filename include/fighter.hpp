@@ -25,12 +25,12 @@ private:
 
     // vector<ActionType> historicoAcoes;
 
-    bool verificarSucesso(ActionType acaoAtual);
-
-public:
+    
+    public:
     Fighter(string nome, int vida,  int ataque, int magia, int cargaTotal);
     
     int retornaDano(ActionType tipo);
+    bool isSucesso(ActionType acaoAtual);
     bool isKnockout(int dano); 
 
     string getNome() const;
@@ -48,7 +48,7 @@ public:
     // Setters
     void setVidaAtual(int vida);
     void setCargaMagia(int carga);
-    void setTipoUltima(Action& acao);
+    void setUltimaAcao(Action& acao);
     void setKnockout(bool knockout);
     void setNegadoMagia(bool negado);
 };
